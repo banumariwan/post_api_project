@@ -1,17 +1,21 @@
-# 📄 Django DRF Post API
+📄 Django DRF Post API
 
 A **simple Django REST Framework project** built to practice creating APIs from scratch.  
-This project is designed for learning DRF fundamentals: **APIView, ModelSerializer, and JSON responses**.
+This project now includes **ModelSerializer, ModelViewSet, and Router** to provide full CRUD operations automatically.
 
 ---
 
 ## 🚀 Features
 
-- Create a **Post** model with title, content, and timestamp  
-- Return JSON response for all posts via **PostSerializer**  
-- Use **APIView** to fetch and return posts  
-- Easy-to-extend structure for **ViewSets, Routers, and full CRUD**  
-- Clean and minimal — perfect for learning DRF basics
+- **Post model** with title, content, and timestamp  
+- **ModelSerializer** converts models to JSON automatically  
+- **ModelViewSet + Router** provides full CRUD:
+  - List all posts  
+  - Retrieve a single post  
+  - Create new posts  
+  - Update posts (full & partial)  
+  - Delete posts  
+- Minimal setup — perfect for learning DRF basics and extending later
 
 ---
 
@@ -68,9 +72,9 @@ post_api_project/
 │
 ├── posts/
 │   ├── models.py
-│   ├── serializers.py       # <-- new
-│   ├── views.py
-│   ├── urls.py
+│   ├── serializers.py
+│   ├── views.py        # <-- now includes PostViewSet
+│   ├── urls.py         # <-- now includes Router
 │   ├── admin.py
 │   └── apps.py
 │
@@ -80,29 +84,34 @@ post_api_project/
 │
 ├── manage.py
 └── README.md
-📌 API Endpoint
+📌 API Endpoints
 Endpoint	Method	Description
-/api/posts/	GET	Returns all posts in JSON using PostSerializer
+/api/posts/	GET	List all posts
+/api/posts/<id>/	GET	Retrieve a single post
+/api/posts/	POST	Create a new post
+/api/posts/<id>/	PUT	Update a post fully
+/api/posts/<id>/	PATCH	Update a post partially
+/api/posts/<id>/	DELETE	Delete a post
+
+Accessible via DRF Browsable API at http://127.0.0.1:8000/api/posts/
 
 ⭐ Learning Outcomes
 DRF setup and configuration
 
-APIView and returning JSON
+Returning JSON with ModelSerializer
 
-ModelSerializer usage for clean JSON responses
+Full CRUD with ModelViewSet and Router
 
-Preparing for ViewSets and full CRUD APIs
+Preparing for nested serializers, relations, and advanced API patterns
 
 🔮 Future Improvements
-Add CRUD endpoints using ViewSet + Router
-
-Implement nested serializers (e.g., categories or authors)
-
-Add POST, PUT, DELETE functionality
+Add nested serializers (e.g., categories or authors)
 
 Add Postman tests
 
-Expand to a full blog API with advanced features
+Extend to full blog API
+
+Implement authentication & permissions
 
 ❤️ Author
 Banu Mariwan
